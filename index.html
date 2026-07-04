@@ -8,22 +8,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F3ECDD;
-    --card:#FBF8F1;
-    --ink:#2B2A28;
-    --ink-soft:#6b6558;
-    --pine:#2F4538;
-    --pine-dark:#20302A;
-    --saffron:#C98A2C;
-    --rust:#8B3A2B;
-    --line:#D8CBB0;
-    --radius:14px;
+    --paper:#FFF8ED;
+    --card:#FFFFFF;
+    --ink:#2D2A26;
+    --ink-soft:#8A7F6F;
+    --coral:#E8562F;
+    --coral-dark:#C43D1A;
+    --gold:#FFB100;
+    --teal:#12A594;
+    --teal-dark:#0C7A6E;
+    --pink:#D64550;
+    --line:#F0DFC8;
+    --radius:16px;
   }
   *{box-sizing:border-box;}
   body{
     margin:0;
     background:var(--paper);
-    background-image:radial-gradient(circle at 1px 1px, rgba(43,42,40,0.05) 1px, transparent 0);
+    background-image:radial-gradient(circle at 1px 1px, rgba(232,86,47,0.06) 1px, transparent 0);
     background-size:22px 22px;
     color:var(--ink);
     font-family:'Tajawal',sans-serif;
@@ -31,18 +33,20 @@
     padding-bottom:40px;
   }
   header{
-    background:var(--pine);
-    color:var(--paper);
-    padding:22px 18px 26px;
-    border-bottom:4px solid var(--saffron);
+    background:linear-gradient(120deg, var(--coral) 0%, var(--coral-dark) 55%, var(--gold) 130%);
+    color:#fff;
+    padding:24px 18px 30px;
+    border-bottom:5px solid var(--gold);
+    box-shadow:0 4px 16px rgba(196,61,26,0.25);
   }
   header h1{
     font-family:'Markazi Text',serif;
-    font-size:2.3rem;
+    font-size:2.5rem;
     font-weight:700;
     margin:0 0 4px;
+    text-shadow:0 2px 6px rgba(0,0,0,0.15);
   }
-  header p{margin:0; font-size:0.85rem; opacity:0.75;}
+  header p{margin:0; font-size:0.88rem; opacity:0.9;}
   .container{max-width:760px; margin:0 auto; padding:16px;}
 
   .toolbar{display:flex; gap:8px; margin:14px 0; flex-wrap:wrap;}
@@ -50,43 +54,52 @@
     font-family:'Tajawal',sans-serif;
     border:1.5px solid var(--line);
     background:var(--card);
-    border-radius:10px;
+    border-radius:12px;
     padding:10px 12px;
     font-size:0.92rem;
     color:var(--ink);
   }
   .toolbar input[type=text]{flex:1 1 160px;}
-  .toolbar select{flex:0 1 130px;}
+  .toolbar select{flex:0 1 140px;}
   .btn{
-    border:none; border-radius:10px; padding:10px 16px;
+    border:none; border-radius:12px; padding:10px 18px;
     font-family:'Tajawal',sans-serif; font-weight:700; font-size:0.92rem;
-    cursor:pointer; transition:transform .12s ease;
+    cursor:pointer; transition:transform .12s ease, box-shadow .12s ease;
   }
   .btn:active{transform:scale(0.96);}
-  .btn-primary{background:var(--saffron); color:#fff;}
-  .btn-ghost{background:transparent; color:var(--pine); border:1.5px solid var(--pine);}
-  .btn-danger{background:transparent; color:var(--rust); border:1.5px solid var(--rust);}
-  .btn-small{padding:6px 10px; font-size:0.78rem; border-radius:8px;}
-  .row-actions{display:flex; gap:8px; margin-bottom:6px;}
+  .btn-primary{background:linear-gradient(120deg, var(--gold), var(--coral)); color:#fff; box-shadow:0 3px 10px rgba(232,86,47,0.3);}
+  .btn-teal{background:linear-gradient(120deg, var(--teal), var(--teal-dark)); color:#fff; box-shadow:0 3px 10px rgba(18,165,148,0.3);}
+  .btn-ghost{background:#fff; color:var(--coral-dark); border:1.5px solid var(--coral); }
+  .btn-danger{background:#fff; color:var(--pink); border:1.5px solid var(--pink);}
+  .btn-small{padding:7px 12px; font-size:0.78rem; border-radius:9px;}
+  .row-actions{display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap;}
 
   .grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:16px; margin-top:10px;}
   .card{
     background:var(--card); border-radius:var(--radius); border:1.5px solid var(--line);
-    position:relative; overflow:hidden; box-shadow:0 2px 0 rgba(43,42,40,0.04);
-    display:flex; flex-direction:column;
+    position:relative; overflow:hidden; box-shadow:0 3px 10px rgba(45,42,38,0.06);
+    display:flex; flex-direction:column; transition:transform .15s ease, box-shadow .15s ease;
   }
-  .card-top{height:6px; background-image:repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 16px);}
+  .card:hover{transform:translateY(-3px); box-shadow:0 8px 18px rgba(45,42,38,0.12);}
+  .card-top{height:6px; background:linear-gradient(90deg, var(--coral), var(--gold), var(--teal));}
   .card-img{width:100%; height:140px; object-fit:cover; background:var(--paper); display:block;}
-  .card-img-placeholder{width:100%; height:140px; display:flex; align-items:center; justify-content:center; background:var(--paper); color:var(--line); font-size:2rem;}
+  .card-img-placeholder{width:100%; height:140px; display:flex; align-items:center; justify-content:center; background:var(--paper); color:var(--line); font-size:2.2rem;}
   .card-body{padding:12px 14px 14px; flex:1; display:flex; flex-direction:column;}
-  .card-tag{display:inline-block; align-self:flex-start; background:var(--pine); color:var(--paper); font-size:0.7rem; padding:3px 9px; border-radius:20px; margin-bottom:8px;}
-  .card h3{font-family:'Markazi Text',serif; font-size:1.4rem; margin:0 0 6px; font-weight:700;}
+  .card-tag{display:inline-block; align-self:flex-start; background:var(--teal); color:#fff; font-size:0.7rem; padding:4px 10px; border-radius:20px; margin-bottom:8px; font-weight:700;}
+  .card h3{font-family:'Markazi Text',serif; font-size:1.45rem; margin:0 0 6px; font-weight:700; color:var(--coral-dark);}
   .card-fav{
-    position:absolute; top:10px; left:10px; background:rgba(251,248,241,0.9); border-radius:50%;
-    width:34px; height:34px; display:flex; align-items:center; justify-content:center;
-    border:1.5px solid var(--line); cursor:pointer; font-size:1.1rem; color:var(--line);
+    position:absolute; top:10px; left:10px; background:rgba(255,255,255,0.92); border-radius:50%;
+    width:36px; height:36px; display:flex; align-items:center; justify-content:center;
+    border:1.5px solid var(--line); cursor:pointer; font-size:1.2rem; color:var(--line); z-index:2;
   }
-  .card-fav.active{color:var(--rust); border-color:var(--rust);}
+  .card-fav.active{color:var(--gold); border-color:var(--gold); box-shadow:0 2px 8px rgba(255,177,0,0.4);}
+  .card-check{
+    position:absolute; top:10px; right:10px; width:26px; height:26px; z-index:2;
+    accent-color:var(--pink); display:none; cursor:pointer;
+  }
+  .grid.selecting .card-check{display:block;}
+  .grid.selecting .card{outline:2px solid transparent;}
+  .grid.selecting .card.checked{outline:2px solid var(--pink);}
   .card-actions{display:flex; gap:8px; margin-top:auto; padding-top:10px;}
   .card-actions .btn{flex:1;}
 
@@ -94,74 +107,75 @@
   .empty .big{font-size:2.4rem; margin-bottom:8px;}
 
   .overlay{
-    position:fixed; inset:0; background:rgba(32,48,42,0.55);
+    position:fixed; inset:0; background:rgba(45,30,20,0.55);
     display:none; align-items:flex-start; justify-content:center;
     padding:24px 12px; overflow-y:auto; z-index:50;
   }
   .overlay.open{display:flex;}
   .modal{
-    background:var(--card); border-radius:16px; max-width:520px; width:100%;
+    background:var(--card); border-radius:20px; max-width:520px; width:100%;
     padding:22px; border:1.5px solid var(--line); margin-top:10px;
+    box-shadow:0 12px 30px rgba(45,30,20,0.25);
   }
-  .modal h2{font-family:'Markazi Text',serif; font-size:1.7rem; margin:0 0 14px; color:var(--pine-dark);}
+  .modal h2{font-family:'Markazi Text',serif; font-size:1.8rem; margin:0 0 14px; color:var(--coral-dark);}
   .field{margin-bottom:16px;}
-  .field label{display:block; font-size:0.82rem; font-weight:700; color:var(--pine-dark); margin-bottom:5px;}
+  .field label{display:block; font-size:0.82rem; font-weight:700; color:var(--teal-dark); margin-bottom:5px;}
   .field input[type=text], .field input[type=url], .field input[type=number], .field textarea, .field select{
-    width:100%; font-family:'Tajawal',sans-serif; border:1.5px solid var(--line); border-radius:10px;
+    width:100%; font-family:'Tajawal',sans-serif; border:1.5px solid var(--line); border-radius:12px;
     padding:10px 12px; font-size:0.92rem; background:#fff; color:var(--ink); resize:vertical;
   }
+  .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--gold); border-color:var(--gold);}
   .field textarea{min-height:70px; line-height:1.6;}
   .cat-row{display:flex; gap:8px;}
   .cat-row select{flex:1;}
   .img-pick{display:flex; align-items:center; gap:12px;}
-  .img-pick img{width:64px; height:64px; object-fit:cover; border-radius:8px; border:1.5px solid var(--line);}
+  .img-pick img{width:64px; height:64px; object-fit:cover; border-radius:10px; border:1.5px solid var(--line);}
   .modal-actions{display:flex; gap:10px; margin-top:18px;}
   .modal-actions .btn{flex:1;}
   .hint{font-size:0.72rem; color:var(--ink-soft); margin-top:4px;}
-  .link-line{display:flex; align-items:center; gap:6px; font-size:0.82rem; color:var(--saffron); margin-top:8px; text-decoration:none;}
+  .link-line{display:flex; align-items:center; gap:6px; font-size:0.85rem; color:var(--coral-dark); margin-top:8px; text-decoration:none; font-weight:700;}
   .fab{
-    position:fixed; bottom:20px; left:20px; background:var(--saffron); color:#fff;
-    width:56px; height:56px; border-radius:50%; border:none; font-size:1.8rem;
-    box-shadow:0 4px 14px rgba(0,0,0,0.25); cursor:pointer; z-index:20;
+    position:fixed; bottom:20px; left:20px; background:linear-gradient(135deg, var(--gold), var(--coral)); color:#fff;
+    width:58px; height:58px; border-radius:50%; border:none; font-size:1.9rem;
+    box-shadow:0 6px 18px rgba(196,61,26,0.4); cursor:pointer; z-index:20;
   }
 
   /* ingredients table */
-  .ing-table{width:100%; border-collapse:collapse;}
-  .ing-head{display:grid; grid-template-columns:1fr 70px 110px 30px; gap:6px; font-size:0.72rem; color:var(--ink-soft); margin-bottom:4px; padding:0 2px;}
-  .ing-row{display:grid; grid-template-columns:1fr 70px 110px 30px; gap:6px; margin-bottom:6px; align-items:center;}
+  .ing-head{display:grid; grid-template-columns:1fr 70px 120px 30px; gap:6px; font-size:0.72rem; color:var(--ink-soft); margin-bottom:4px; padding:0 2px; font-weight:700;}
+  .ing-row{display:grid; grid-template-columns:1fr 70px 120px 30px; gap:6px; margin-bottom:6px; align-items:center;}
   .ing-row input, .ing-row select{padding:8px 8px; font-size:0.85rem;}
   .remove-x{
-    background:none; border:none; color:var(--rust); font-size:1.1rem; cursor:pointer;
-    width:28px; height:28px; display:flex; align-items:center; justify-content:center;
+    background:#fff; border:1.5px solid var(--pink); color:var(--pink); font-size:1rem; cursor:pointer;
+    width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center;
   }
 
   /* method groups */
   .method-group{
-    border:1.5px dashed var(--line); border-radius:12px; padding:12px; margin-bottom:12px; background:#fff;
+    border:1.5px dashed var(--teal); border-radius:14px; padding:12px; margin-bottom:12px; background:#FAFFFE;
   }
   .method-group-head{display:flex; gap:8px; align-items:center; margin-bottom:10px;}
   .method-group-head input{flex:1; font-weight:700;}
   .step-row{display:flex; gap:6px; margin-bottom:6px; align-items:center;}
   .step-row .step-num{
-    width:22px; height:22px; border-radius:50%; background:var(--pine); color:var(--paper);
-    font-size:0.72rem; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    width:24px; height:24px; border-radius:50%; background:var(--teal); color:#fff;
+    font-size:0.75rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:700;
   }
   .step-row input{flex:1; padding:8px 10px; font-size:0.85rem;}
   .add-step-btn{margin-top:2px;}
 
-  .view-body{white-space:pre-wrap; line-height:1.8; font-size:0.92rem;}
   .view-section{margin-bottom:16px;}
-  .view-section h4{font-family:'Markazi Text',serif; color:var(--pine-dark); font-size:1.15rem; margin:0 0 6px; border-bottom:1px solid var(--line); padding-bottom:4px;}
-  .view-table{width:100%; border-collapse:collapse; font-size:0.88rem;}
-  .view-table td{padding:5px 4px; border-bottom:1px solid var(--line);}
+  .view-section h4{font-family:'Markazi Text',serif; color:var(--coral-dark); font-size:1.2rem; margin:0 0 6px; border-bottom:2px solid var(--gold); padding-bottom:4px;}
+  .view-table{width:100%; border-collapse:collapse; font-size:0.9rem;}
+  .view-table td{padding:6px 4px; border-bottom:1px solid var(--line);}
   .view-steps{padding-inline-start:20px; line-height:1.9;}
-  .view-group-title{font-weight:700; color:var(--pine-dark); margin:10px 0 4px;}
+  .view-group-title{font-weight:700; color:var(--teal-dark); margin:10px 0 4px;}
+  .view-body{white-space:pre-wrap; line-height:1.8; font-size:0.92rem;}
 
   @media (max-width:420px){
-    header h1{font-size:1.9rem;}
+    header h1{font-size:2rem;}
     .grid{grid-template-columns:1fr 1fr;}
     .ing-head{display:none;}
-    .ing-row{grid-template-columns:1fr 55px 90px 26px;}
+    .ing-row{grid-template-columns:1fr 55px 95px 26px;}
   }
 </style>
 </head>
@@ -170,29 +184,34 @@
 <header>
   <div class="container" style="padding:0;">
     <h1>وصفاتي 🍲</h1>
-    <p>دفتر وصفاتك المفضلة، محفوظ على جهازك</p>
+    <p>دفتر وصفاتك المفضّلة، محفوظ على جهازك</p>
   </div>
 </header>
 
 <div class="container">
   <div class="toolbar">
     <input type="text" id="searchBox" placeholder="ابحثي عن وصفة أو مكوّن...">
-    <select id="categoryFilter"><option value="">كل الأصناف</option></select>
+    <select id="categoryFilter"><option value="">جميع الأصناف</option></select>
     <select id="favFilter">
       <option value="">الكل</option>
-      <option value="fav">المفضلة فقط ⭐</option>
+      <option value="fav">المفضّلة فقط ⭐</option>
     </select>
   </div>
   <div class="row-actions">
     <button class="btn btn-ghost btn-small" id="exportBtn">تصدير JSON</button>
     <button class="btn btn-ghost btn-small" id="importBtn">استيراد JSON</button>
     <input type="file" id="importFile" accept=".json" style="display:none;">
+    <button class="btn btn-danger btn-small" id="selectModeBtn">تحديد وحذف وصفات</button>
+  </div>
+  <div class="row-actions" id="bulkActions" style="display:none;">
+    <button class="btn btn-danger btn-small" id="deleteSelectedBtn">حذف المحدّد (<span id="selCount">0</span>)</button>
+    <button class="btn btn-ghost btn-small" id="cancelSelectBtn">إلغاء التحديد</button>
   </div>
 
   <div id="grid" class="grid"></div>
   <div id="emptyState" class="empty" style="display:none;">
     <div class="big">📖</div>
-    <div>ما في وصفات بعد. دوسي على + لتضيفي أول وصفة</div>
+    <div>لا توجد وصفات بعد. اضغطي على زر الإضافة لتسجيل أول وصفة</div>
   </div>
 </div>
 
@@ -206,14 +225,14 @@
 
     <div class="field">
       <label>اسم الوصفة</label>
-      <input type="text" id="fName" placeholder="مثال: مقلوبة دجاج">
+      <input type="text" id="fName" placeholder="مثال: مقلوبة الدجاج">
     </div>
 
     <div class="field">
       <label>التصنيف</label>
       <div class="cat-row">
         <select id="fCategory"></select>
-        <button type="button" class="btn btn-ghost btn-small" id="addCatBtn">＋ تصنيف جديد</button>
+        <button type="button" class="btn btn-teal btn-small" id="addCatBtn">＋ تصنيف جديد</button>
       </div>
     </div>
 
@@ -223,7 +242,7 @@
         <img id="imgPreview" src="" style="display:none;">
         <input type="file" id="fImage" accept="image/*">
       </div>
-      <div class="hint">رح تنضغط الصورة تلقائياً قبل الحفظ</div>
+      <div class="hint">سيتم ضغط الصورة تلقائياً قبل حفظها</div>
     </div>
 
     <div class="field">
@@ -232,14 +251,14 @@
         <span>المكوّن</span><span>الكمية</span><span>الوحدة</span><span></span>
       </div>
       <div id="ingredientsBody"></div>
-      <button type="button" class="btn btn-ghost btn-small" id="addIngBtn">＋ إضافة مكوّن</button>
+      <button type="button" class="btn btn-teal btn-small" id="addIngBtn">＋ إضافة مكوّن</button>
     </div>
 
     <div class="field">
       <label>طريقة الإعداد (مراحل)</label>
       <div id="methodGroups"></div>
-      <button type="button" class="btn btn-ghost btn-small" id="addGroupBtn">＋ إضافة مرحلة جديدة</button>
-      <div class="hint">مثال على مرحلة: "تجهيز المكوّنات الجافة" وتحتها خطواتها، ثم مرحلة "الخبز" وهكذا</div>
+      <button type="button" class="btn btn-teal btn-small" id="addGroupBtn">＋ إضافة مرحلة جديدة</button>
+      <div class="hint">على سبيل المثال: مرحلة "تجهيز المكوّنات الجافة" ثم خطواتها، تليها مرحلة "الخَبز" وهكذا</div>
     </div>
 
     <div class="field">
@@ -268,6 +287,8 @@ const DEFAULT_CATS = ['فطور','غداء','عشاء','حلويات','مقبل�
 let recipes = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
 let categories = JSON.parse(localStorage.getItem(CATS_KEY) || 'null') || [...DEFAULT_CATS];
 let pendingImage = null;
+let selectMode = false;
+let selectedIds = new Set();
 
 function saveRecipes(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(recipes)); }
 function saveCategories(){ localStorage.setItem(CATS_KEY, JSON.stringify(categories)); }
@@ -324,7 +345,7 @@ document.getElementById('fImage').addEventListener('change', async (e)=>{
 function populateCategorySelects(){
   const filter = document.getElementById('categoryFilter');
   const currentFilterVal = filter.value;
-  filter.innerHTML = '<option value="">كل الأصناف</option>' + categories.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+  filter.innerHTML = '<option value="">جميع الأصناف</option>' + categories.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
   filter.value = categories.includes(currentFilterVal) ? currentFilterVal : '';
 
   const formSelect = document.getElementById('fCategory');
@@ -410,6 +431,38 @@ function collectMethodGroups(){
   })).filter(g=>g.steps.length);
 }
 
+// ---- selection mode ----
+function updateBulkBar(){
+  document.getElementById('selCount').textContent = selectedIds.size;
+}
+document.getElementById('selectModeBtn').addEventListener('click', ()=>{
+  selectMode = true;
+  selectedIds.clear();
+  document.getElementById('grid').classList.add('selecting');
+  document.getElementById('bulkActions').style.display = 'flex';
+  document.getElementById('selectModeBtn').style.display = 'none';
+  updateBulkBar();
+  render();
+});
+document.getElementById('cancelSelectBtn').addEventListener('click', ()=>{
+  selectMode = false;
+  selectedIds.clear();
+  document.getElementById('grid').classList.remove('selecting');
+  document.getElementById('bulkActions').style.display = 'none';
+  document.getElementById('selectModeBtn').style.display = 'inline-block';
+  render();
+});
+document.getElementById('deleteSelectedBtn').addEventListener('click', ()=>{
+  if(selectedIds.size === 0) return;
+  if(confirm('هل أنتِ متأكدة من حذف الوصفات المحدّدة وعددها ' + selectedIds.size + '؟')){
+    recipes = recipes.filter(r=>!selectedIds.has(r.id));
+    saveRecipes();
+    selectedIds.clear();
+    updateBulkBar();
+    render();
+  }
+});
+
 // ---- render recipe grid ----
 function render(){
   populateCategorySelects();
@@ -442,10 +495,11 @@ function render(){
 
   list.forEach(r=>{
     const card = document.createElement('div');
-    card.className = 'card';
+    card.className = 'card' + (selectedIds.has(r.id) ? ' checked' : '');
     card.innerHTML = `
       <div class="card-top"></div>
       <div class="card-fav ${r.favorite?'active':''}" data-id="${r.id}">${r.favorite?'★':'☆'}</div>
+      <input type="checkbox" class="card-check" data-id="${r.id}" ${selectedIds.has(r.id)?'checked':''}>
       ${r.image ? `<img class="card-img" src="${r.image}">` : `<div class="card-img-placeholder">🍽️</div>`}
       <div class="card-body">
         ${r.category ? `<span class="card-tag">${escapeHtml(r.category)}</span>` : ''}
@@ -453,7 +507,7 @@ function render(){
         <div class="card-actions">
           <button class="btn btn-ghost btn-small" data-view="${r.id}">عرض</button>
           <button class="btn btn-ghost btn-small" data-edit="${r.id}">تعديل</button>
-          <button class="btn btn-ghost btn-small" data-del="${r.id}">حذف</button>
+          <button class="btn btn-danger btn-small" data-del="${r.id}">حذف</button>
         </div>
       </div>
     `;
@@ -462,6 +516,14 @@ function render(){
 }
 
 document.getElementById('grid').addEventListener('click', (e)=>{
+  const checkbox = e.target.closest('.card-check');
+  if(checkbox){
+    const id = checkbox.dataset.id;
+    if(checkbox.checked) selectedIds.add(id); else selectedIds.delete(id);
+    updateBulkBar();
+    checkbox.closest('.card').classList.toggle('checked', checkbox.checked);
+    return;
+  }
   const favBtn = e.target.closest('.card-fav');
   if(favBtn){
     const r = recipes.find(x=>x.id===favBtn.dataset.id);
@@ -472,7 +534,7 @@ document.getElementById('grid').addEventListener('click', (e)=>{
   if(e.target.dataset.view){ openView(e.target.dataset.view); return; }
   if(e.target.dataset.edit){ openForm(e.target.dataset.edit); return; }
   if(e.target.dataset.del){
-    if(confirm('متأكدة إنك بدك تحذفي هالوصفة؟')){
+    if(confirm('هل أنتِ متأكدة من حذف هذه الوصفة؟')){
       recipes = recipes.filter(r=>r.id!==e.target.dataset.del);
       saveRecipes(); render();
     }
@@ -529,7 +591,7 @@ formOverlay.addEventListener('click', (e)=>{ if(e.target===formOverlay) formOver
 
 document.getElementById('saveBtn').addEventListener('click', ()=>{
   const name = document.getElementById('fName').value.trim();
-  if(!name){ alert('لازم تكتبي اسم الوصفة'); return; }
+  if(!name){ alert('يجب إدخال اسم الوصفة'); return; }
   const id = document.getElementById('editId').value;
   const data = {
     name,
@@ -547,7 +609,7 @@ document.getElementById('saveBtn').addEventListener('click', ()=>{
   }
   try{ saveRecipes(); }
   catch(err){
-    alert('في مشكلة بالحفظ، ممكن المساحة المتوفرة على المتصفح صارت ضيقة. جربي تحذفي صور من وصفات قديمة.');
+    alert('حدثت مشكلة أثناء الحفظ، من المحتمل أن مساحة التخزين المتوفرة في المتصفح أصبحت غير كافية. يُرجى حذف بعض الصور من وصفات سابقة والمحاولة مجدداً.');
     return;
   }
   formOverlay.classList.remove('open');
@@ -565,16 +627,16 @@ function openView(id){
   `).join('');
 
   document.getElementById('viewModalBody').innerHTML = `
-    ${r.image ? `<img src="${r.image}" style="width:100%;border-radius:12px;margin-bottom:14px;object-fit:cover;max-height:220px;">` : ''}
+    ${r.image ? `<img src="${r.image}" style="width:100%;border-radius:14px;margin-bottom:14px;object-fit:cover;max-height:220px;">` : ''}
     <h2>${escapeHtml(r.name)}</h2>
     ${r.category ? `<span class="card-tag">${escapeHtml(r.category)}</span>` : ''}
     <div class="view-section" style="margin-top:14px;">
       <h4>المكوّنات</h4>
-      <table class="view-table">${ingRows || '<tr><td>-</td></tr>'}</table>
+      <table class="view-table">${ingRows || '<tr><td>لا توجد مكوّنات مسجّلة</td></tr>'}</table>
     </div>
     <div class="view-section">
       <h4>طريقة الإعداد</h4>
-      ${groupsHtml || '<div class="view-body">-</div>'}
+      ${groupsHtml || '<div class="view-body">لا توجد خطوات مسجّلة</div>'}
     </div>
     ${r.link ? `<a class="link-line" href="${r.link}" target="_blank">🔗 فتح الرابط</a>` : ''}
     <div class="modal-actions">
@@ -620,7 +682,7 @@ document.getElementById('importFile').addEventListener('change', (e)=>{
       saveRecipes(); saveCategories(); render();
       alert('تم استيراد ' + added + ' وصفة بنجاح');
     }catch(err){
-      alert('الملف مش بصيغة صحيحة');
+      alert('تنسيق الملف غير صحيح، يُرجى التأكد من الملف المُستورَد');
     }
   };
   reader.readAsText(file);
